@@ -4,47 +4,43 @@ body {
     padding: 0;
     height: 100vh;
     display: flex;
+    flex-direction: column; /* Permet d'empiler les éléments */
     justify-content: center;
     align-items: center;
-    background-color: #2a2a5e; /* Couleur proche de l'image de fond */
-    
-    background-image: url('1.png'); /* Chemin vers l'image */
+    background-color: #2a2a5e;
+    background-image: url('1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Bouton style pixel art */
+/* Boutons distincts */
 .start-button {
     font-size: 1.5rem;
-    font-family: 'Press Start 2P', cursive; /* Police rétro */
+    font-family: 'Press Start 2P', cursive;
     color: #ffffff;
-    background-color: #f76d6d; /* Couleur de fond rouge */
-    border: 4px solid #ffffff; /* Bordure blanche */
+    background-color: #f76d6d;
+    border: 4px solid #ffffff;
     padding: 15px 30px;
-    border-radius: 15px; /* Coins arrondis */
+    border-radius: 15px;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 4px 4px 0px #2b2b7f, 8px 8px 0px #000000; /* Ombre style pixel art */
+    box-shadow: 4px 4px 0px #2b2b7f, 8px 8px 0px #000000;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    width: 500px; /* Largeur fixe */
-    height: 100px; /* Hauteur fixe */
-    position: absolute; /* Permet un positionnement précis */
-    
-    position: absolute;
-    bottom: 30vh; /* 5% de la hauteur de l'écran */
-    right: 38vw; /* 5% de la largeur de l'écran */
-
+    width: 300px; /* Largeur plus petite */
+    height: auto; /* Ajuste la hauteur automatiquement */
+    margin: 10px; /* Ajoute un espace entre les boutons */
+    text-align: center;
 }
 
 /* Effet hover */
 .start-button:hover {
-    transform: scale(1.1); /* Agrandit légèrement le bouton */
-    background-color: #f55b5b; /* Change la couleur au survol */
+    transform: scale(1.1);
+    background-color: #f55b5b;
 }
 
-/* Ajout d'un effet actif (clic) */
+/* Effet actif (clic) */
 .start-button:active {
-    box-shadow: 2px 2px 0px #2b2b7f, 4px 4px 0px #000000; /* Réduction de l'ombre */
-    transform: translate(1px, 1px); /* Déplacement subtil */
+    box-shadow: 2px 2px 0px #2b2b7f, 4px 4px 0px #000000;
+    transform: translate(1px, 1px);
 }
