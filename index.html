@@ -6,11 +6,18 @@
     <title>Quiz Game</title>
     <link rel="stylesheet" href="quizz.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <div class="container">
         <button class="start-button">COMMENCER</button>
     </div>
+
+    <script>
+        // Redirection vers la page de création de compte lorsque l'utilisateur clique sur le bouton
+        document.querySelector(".start-button").addEventListener("click", function() {
+            window.location.href = "create-account.html"; // Redirection vers la page de création de compte
+        });
+    </script>
 </body>
 </html>
+
