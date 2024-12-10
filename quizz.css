@@ -7,50 +7,14 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #2a2a5e; /* Couleur proche de l'image de fond */
+    
     background-image: url('1.png'); /* Chemin vers l'image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Container principal */
-.container {
-    text-align: center;
-    color: white;
-    font-family: 'Press Start 2P', cursive; /* Police rétro */
-    width: 90%;
-    max-width: 500px;
-}
-
-/* Style du titre */
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-/* Style des inputs */
-.input-container {
-    margin: 10px 0;
-    text-align: left;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 2px solid #fff;
-    background-color: transparent;
-    color: white;
-    margin-top: 5px;
-    border-radius: 10px;
-}
-
-input:focus {
-    outline: none;
-    border-color: #f76d6d;
-}
-
-/* Bouton de type pixel art */
+/* Bouton style pixel art */
 .start-button {
     font-size: 1.5rem;
     font-family: 'Press Start 2P', cursive; /* Police rétro */
@@ -63,9 +27,14 @@ input:focus {
     cursor: pointer;
     box-shadow: 4px 4px 0px #2b2b7f, 8px 8px 0px #000000; /* Ombre style pixel art */
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    width: 100%; /* Largeur dynamique */
-    height: 60px; /* Hauteur dynamique */
-    margin-top: 20px;
+    width: 500px; /* Largeur fixe */
+    height: 100px; /* Hauteur fixe */
+    position: absolute; /* Permet un positionnement précis */
+    
+    position: absolute;
+    bottom: 30vh; /* 5% de la hauteur de l'écran */
+    right: 38vw; /* 5% de la largeur de l'écran */
+
 }
 
 /* Effet hover */
@@ -79,4 +48,3 @@ input:focus {
     box-shadow: 2px 2px 0px #2b2b7f, 4px 4px 0px #000000; /* Réduction de l'ombre */
     transform: translate(1px, 1px); /* Déplacement subtil */
 }
-
