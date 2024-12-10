@@ -30,8 +30,10 @@ body {
     width: 500px; /* Largeur fixe */
     height: 100px; /* Hauteur fixe */
     position: absolute; /* Permet un positionnement précis */
-    top: 60%; /* Positionner à 50% de la hauteur */
-    left: 30%; /* Positionner à 50% de la largeur */
+    
+    position: absolute;
+    bottom: 30vh; /* 5% de la hauteur de l'écran */
+    right: 38vw; /* 5% de la largeur de l'écran */
 
 }
 
