@@ -7,8 +7,8 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #2a2a5e; /* Couleur proche de l'image de fond */
-    font-family: 'Press Start 2P', cursive; /* Police rétro */
-    background-image: url('test.png'); /* Chemin vers l'image */
+    
+    background-image: url('1.png'); /* Chemin vers l'image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,6 +17,7 @@ body {
 /* Bouton style pixel art */
 .start-button {
     font-size: 1.5rem;
+    font-family: 'Press Start 2P', cursive; /* Police rétro */
     color: #ffffff;
     background-color: #f76d6d; /* Couleur de fond rouge */
     border: 4px solid #ffffff; /* Bordure blanche */
@@ -29,8 +30,8 @@ body {
     width: 500px; /* Largeur fixe */
     height: 100px; /* Hauteur fixe */
     position: absolute; /* Permet un positionnement précis */
-    top: 70%; /* Positionner à 50% de la hauteur */
-    left: 50%; /* Positionner à 50% de la largeur */
+    top: 60%; /* Positionner à 50% de la hauteur */
+    left: 30%; /* Positionner à 50% de la largeur */
 
 }
 
