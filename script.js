@@ -3,19 +3,36 @@ document.getElementById("commencerBtn").addEventListener("click", function() {
     window.location.href = "create-account.html"; // Redirection vers la page de création de compte
 });
 
-// Validation du formulaire de création de compte
-document.getElementById("createAccountForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+document.getElementById('register-form').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Empêche le rechargement de la page
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
 
-    if (validateEmail(email) && validatePassword(password)) {
-        // Effectuer l'inscription (vous pouvez envoyer les données au serveur ici)
-        alert("Inscription réussie !");
-        window.location.href = "quiz.html"; // Redirige vers la page du quiz après l'inscription
-    } else {
-        alert("Veuillez vérifier vos informations.");
+    // Vérifier si les mots de passe correspondent
+    if (password !== confirmPassword) {
+        alert("Les mots de passe ne correspondent pas !");
+        return; // Arrête l'exécution si les mots de passe ne correspondent pas
+    }
+
+    try {
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, email, password })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+            window.location.href = "connexion.html"; // Redirige vers la page de connexion
+        } else {
+            alert(result.error || 'Erreur lors de l\'inscription.');
+        }
+    } catch (error) {
+        alert('Une erreur est survenue. Veuillez réessayer.');
     }
 });
 

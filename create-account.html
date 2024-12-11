@@ -12,7 +12,7 @@
         <!-- Bouton pour créer un compte -->
         <button class="connect-button" id="createAccount">Créer un compte</button>
         <!-- Bouton pour se connecter -->
-        <button class="connect-button" id="login">Connexion</button>
+        <button class="log-button" id="login">Connexion</button>
     </div>
 
     <div>
@@ -21,25 +21,34 @@
     
 
     <script>
-        // Redirection vers la page d'inscription
-        document.getElementById("createAccount").addEventListener("click", function() {
-            window.location.href = "register.html";
-        });
+        
 
         // Redirection vers la page de connexion
         document.getElementById("login").addEventListener("click", function() {
-            window.location.href = "login.html";
-        });
+            window.location.href = "login.html"; }
+        );
     </script>
 </body>
 
 
 <script>
-    function goBack() {
-        if (window.history.length > 1) {
-            window.history.back();
-        } else {
-            window.location.href = "index.html"; // Remplacez "index.html" par votre page d'accueil
-        }
+     function goBack() {
+        window.location.href = "index.html"; // Redirige vers la page d'accueil
     }
 </script>
+
+<script>
+    // Redirection vers la page de création de compte lorsque l'utilisateur clique sur le bouton
+    document.querySelector(".connect-button").addEventListener("click", function() {
+        window.location.href = "inscription.html"; // Redirection vers la page de création de compte
+    });
+</script>
+
+
+<script>
+    // Redirection vers la page de création de compte lorsque l'utilisateur clique sur le bouton
+    document.querySelector(".log-button").addEventListener("click", function() {
+        window.location.href = "connexion.html"; // Redirection vers la page de création de compte
+    });
+</script>
+

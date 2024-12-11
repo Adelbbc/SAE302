@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="quizz.css">
+</head>
+<body>
+    <div class="container">
+        
+        <form id="login-form">
+            <input type="text" id="emailOrUsername" placeholder="Email ou Nom d'utilisateur" required>
+            <input type="password" id="password" placeholder="Mot de passe" required>
+            <button type="submit">Se connecter</button>
+        </form>
+        <button id="back-button" onclick="goBack()">Retour</button>
+    </div>
+
+    <script>
+        // Bouton retour
+        function goBack() {
+            window.location.href = "create-account.html";
+        }
+
+        // Validation du formulaire de connexion
+        document.getElementById('login-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const emailOrUsername = document.getElementById('emailOrUsername').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ emailOrUsername, password })
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Connexion réussie ! Bienvenue.');
+                    window.location.href = "dashboard.html"; // Redirige vers le tableau de bord
+                } else {
+                    alert(result.error || 'Identifiants incorrects.');
+                }
+            } catch (error) {
+                alert('Une erreur est survenue. Veuillez réessayer.');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
