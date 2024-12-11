@@ -9,8 +9,8 @@ app = Flask(__name__)
 # Configurer la base de données
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'votre_mot_de_passe'
-app.config['MYSQL_DB'] = 'quiz_game'
+app.config['MYSQL_PASSWORD'] = 'adelbbc'
+app.config['MYSQL_DB'] = 'ADVAN_QUIZ'
 
 mysql = MySQL(app)
 
@@ -68,4 +68,14 @@ def login():
         return jsonify({"message": "Connexion réussie"}), 200
     else:
         return jsonify({"error": "Identifiants incorrects"}), 401
+
+@app.route('/quizzes', methods=['GET'])
+def get_quizzes():
+    cur = mysql.connection.cursor()
+    try:
+        cur.execute("SELECT * FROM quizzes")
+        quizzes = cur.fetchall()
+        return jsonify({"quizzes": quizzes}), 200
+    finally:
+        cur.close()
 
