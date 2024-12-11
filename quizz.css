@@ -31,8 +31,15 @@ body {
     height: auto; /* Ajuste la hauteur automatiquement */
     margin: 10px; /* Ajoute un espace entre les boutons */
     text-align: center;
+    
+    position: absolute;
+    bottom: 30vh; /* 5% de la hauteur de l'écran */
+    right: 35vw; /* 5% de la largeur de l'écran */
+    width: 30vw; /* Largeur relative à la largeur de l'écran */
+    
+    
+    
 }
-
 /* Effet hover */
 .start-button:hover {
     transform: scale(1.1);
@@ -43,4 +50,55 @@ body {
 .start-button:active {
     box-shadow: 2px 2px 0px #2b2b7f, 4px 4px 0px #000000;
     transform: translate(1px, 1px);
+}
+
+/* Boutons distincts */
+.connect-button {
+    font-size: 1.5rem;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    background-color: #f76d6d;
+    border: 4px solid #ffffff;
+    padding: 15px 30px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #2b2b7f, 8px 8px 0px #000000;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    width: 300px; /* Largeur plus petite */
+    height: auto; /* Ajuste la hauteur automatiquement */
+    margin: 10px; /* Ajoute un espace entre les boutons */
+    text-align: center;
+    
+}
+
+/* Effet hover */
+.connect-button:hover {
+    transform: scale(1.1);
+    background-color: #f55b5b;
+}
+
+/* Effet actif (clic) */
+.connect-button:active {
+    box-shadow: 2px 2px 0px #2b2b7f, 4px 4px 0px #000000;
+    transform: translate(1px, 1px);
+}
+
+#back-button {
+    position: absolute;
+    top: 10px; /* Distance depuis le haut */
+    left: 10px; /* Distance depuis la droite */
+    background-color: #f76d6d; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    font-family: 'Arial', sans-serif; /* Police */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur interactif */
+    text-transform: uppercase; /* Texte en majuscule */
+    transition: background-color 0.3s ease; /* Transition au survol */
+}
+
+#back-button:hover {
+    background-color: #d63031; /* Couleur différente au survol */
 }

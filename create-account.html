@@ -10,10 +10,15 @@
     <div class="container">
         <h1>Welcome</h1>
         <!-- Bouton pour créer un compte -->
-        <button class="start-button" id="createAccount">Créer un compte</button>
+        <button class="connect-button" id="createAccount">Créer un compte</button>
         <!-- Bouton pour se connecter -->
-        <button class="start-button" id="login">Connexion</button>
+        <button class="connect-button" id="login">Connexion</button>
     </div>
+
+    <div>
+        <button id="back-button" onclick="goBack()">Retour</button>
+    </div>
+    
 
     <script>
         // Redirection vers la page d'inscription
@@ -27,4 +32,14 @@
         });
     </script>
 </body>
-</html>
+
+
+<script>
+    function goBack() {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = "index.html"; // Remplacez "index.html" par votre page d'accueil
+        }
+    }
+</script>

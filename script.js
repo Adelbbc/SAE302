@@ -19,13 +19,3 @@ document.getElementById("createAccountForm").addEventListener("submit", function
     }
 });
 
-// Fonction de validation de l'email
-function validateEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}
-
-// Fonction de validation du mot de passe
-function validatePassword(password) {
-    return password.length >= 6; // Le mot de passe doit faire au moins 6 caractères
-}
