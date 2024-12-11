@@ -4,6 +4,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import re
 import logging
 
+# Configure les logs pour Flask
+logging.basicConfig(level=logging.DEBUG)
+
+
 app = Flask(__name__)
 
 # Configurer la base de données

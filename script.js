@@ -1,7 +1,3 @@
-// Page d'accueil - Redirection vers la page de création de compte
-document.getElementById("commencerBtn").addEventListener("click", function() {
-    window.location.href = "create-account.html"; // Redirection vers la page de création de compte
-});
 
 document.getElementById('register-form').addEventListener('submit', async function (e) {
     e.preventDefault(); // Empêche le rechargement de la page
