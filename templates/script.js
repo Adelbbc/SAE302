@@ -23,7 +23,7 @@ document.getElementById('register-form').addEventListener('submit', async functi
         const result = await response.json();
         if (response.ok) {
             alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
-            window.location.href = "connexion.html"; // Redirige vers la page de connexion
+            window.location.href = "/connexion";  // Redirige vers la page de connexion
         } else {
             alert(result.error || 'Erreur lors de l\'inscription.');
         }

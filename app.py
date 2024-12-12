@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
@@ -10,6 +10,13 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
+
+if __name__ == '__main__':
+    app.run(debug=True)
+    print(app.url_map)
+
+
+
 # Configurer la base de données
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -18,13 +25,20 @@ app.config['MYSQL_DB'] = 'ADVAN_QUIZ'
 
 mysql = MySQL(app)
 
+
 # Endpoint pour l'inscription
 @app.route('/register', methods=['POST'])
 def register():
+    
     data = request.json
     username = data.get('username')
     email = data.get('email')
     password = data.get('password')
+    print(app.url_map)
+    app.logger.debug("Route /register atteinte.")
+        
+
+
 
     if not username or not email or not password:
         return jsonify({"error": "Tous les champs sont requis"}), 400
@@ -82,4 +96,12 @@ def get_quizzes():
         return jsonify({"quizzes": quizzes}), 200
     finally:
         cur.close()
+
+
+
+
+@app.route('/', methods=['GET'])
+def home():
+    print("La route / a été atteinte")
+    return render_template('templates/inscription.html')  # Nom du fichier HTML dans le dossier 'templates'
 
