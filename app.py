@@ -26,6 +26,13 @@ app.config['MYSQL_DB'] = 'ADVAN_QUIZ'
 mysql = MySQL(app)
 
 
+
+
+@app.route('/', methods=['GET'])
+def home():
+    print("La route / a été atteinte")
+    return render_template('index.html')  # Nom du fichier HTML dans le dossier 'templates'
+
 # Endpoint pour l'inscription
 @app.route('/register', methods=['POST'])
 def register():
@@ -100,8 +107,4 @@ def get_quizzes():
 
 
 
-@app.route('/', methods=['GET'])
-def home():
-    print("La route / a été atteinte")
-    return render_template('templates/inscription.html')  # Nom du fichier HTML dans le dossier 'templates'
 
