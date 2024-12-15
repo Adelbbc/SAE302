@@ -15,10 +15,10 @@
     
 
     <script>
-        // Redirection vers la page de création de compte lorsque l'utilisateur clique sur le bouton
-        document.querySelector(".start-button").addEventListener("click", function() {
-            window.location.href = "create-account.html"; // Redirection vers la page de création de compte
-        });
+       document.querySelector(".start-button").addEventListener("click", function() {
+    window.location.href = "{{ url_for('create_account') }}";
+});
+
     </script>
 </body>
 </html>

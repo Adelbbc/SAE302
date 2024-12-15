@@ -20,10 +20,10 @@
     </div>
 
     <script>
-        // Gestion du bouton retour
-        function goBack() {
-            window.location.href = "create-account.html"; // Redirige vers la page d'accueil
-        }
+        // Bouton Retour
+        document.querySelector("#back-button").addEventListener("click", function() {
+            window.history.back(); // Revient à la page précédente
+        });
 
         // Gestion du formulaire d'inscription
         document.getElementById('register-form').addEventListener('submit', async function (e) {

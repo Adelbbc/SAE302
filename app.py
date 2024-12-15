@@ -33,6 +33,26 @@ def home():
     print("La route / a été atteinte")
     return render_template('index.html')  # Nom du fichier HTML dans le dossier 'templates'
 
+
+@app.route('/create-account', methods=['GET'])
+def create_account():
+    return render_template('create-account.html')  # Page de destination
+
+
+@app.route('/connexion')
+def connexion():
+    return render_template('connexion.html')
+
+
+
+@app.route('/inscription')
+def inscription():
+    return render_template('inscription.html')  # Charge la page d'inscription
+
+
+
+
+
 # Endpoint pour l'inscription
 @app.route('/register', methods=['POST'])
 def register():
@@ -70,6 +90,8 @@ def register():
         return jsonify({"error": "Email ou nom d'utilisateur déjà utilisé"}), 400
     finally:
         cur.close()
+
+
 
 # Endpoint pour la connexion
 @app.route('/login', methods=['POST'])

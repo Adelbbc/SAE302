@@ -5,52 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADVAN Quizz</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='quizz.css') }}">
-
-    
 </head>
 <body>
     <div class="container">
-       
         <!-- Bouton pour créer un compte -->
         <button class="connect-button" id="createAccount">Créer un compte</button>
         <!-- Bouton pour se connecter -->
         <button class="log-button" id="login">Connexion</button>
     </div>
 
+    <!-- Bouton Retour -->
     <div>
-        <button id="back-button" onclick="goBack()">Retour</button>
+        <button id="back-button">Retour</button>
     </div>
-    
 
     <script>
-        
+        // Redirection vers la page d'inscription
+        document.querySelector("#createAccount").addEventListener("click", function() {
+            window.location.href = "{{ url_for('inscription') }}"; // Changez pour la route correcte
+        });
 
         // Redirection vers la page de connexion
-        document.getElementById("login").addEventListener("click", function() {
-            window.location.href = "login.html"; }
-        );
+        document.querySelector("#login").addEventListener("click", function() {
+            window.location.href = "{{ url_for('connexion') }}";
+        });
+
+        // Bouton Retour
+        document.querySelector("#back-button").addEventListener("click", function() {
+            window.history.back(); // Revient à la page précédente
+        });
     </script>
 </body>
-
-
-<script>
-     function goBack() {
-        window.location.href = "index.html"; // Redirige vers la page d'accueil
-    }
-</script>
-
-<script>
-    // Redirection vers la page de création de compte lorsque l'utilisateur clique sur le bouton
-    document.querySelector(".connect-button").addEventListener("click", function() {
-        window.location.href = "inscription.html"; // Redirection vers la page de création de compte
-    });
-</script>
-
-
-<script>
-    // Redirection vers la page de création de compte lorsque l'utilisateur clique sur le bouton
-    document.querySelector(".log-button").addEventListener("click", function() {
-        window.location.href = "connexion.html"; // Redirection vers la page de création de compte
-    });
-</script>
-
+</html>
