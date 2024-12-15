@@ -6,7 +6,10 @@ document.getElementById('register-form').addEventListener('submit', async functi
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
-
+    console.log(JSON.stringify({ username, email, password }));
+    console.log("Response status:", response.status);
+    console.log("Response body:", await response.text());
+    
     // Vérifier si les mots de passe correspondent
     if (password !== confirmPassword) {
         alert("Les mots de passe ne correspondent pas !");

@@ -52,20 +52,24 @@ def inscription():
 
 
 
-
-# Endpoint pour l'inscription
 @app.route('/register', methods=['POST'])
 def register():
-    
-    data = request.json
+    print("En-têtes de la requête :", request.headers)
+    print("Données brutes :", request.data.decode('utf-8'))  # Decode les bytes en string
+
+    if not request.is_json:
+        return jsonify({"error": "Le contenu doit être au format JSON"}), 415
+
+    try:
+        data = request.get_json()
+        print("Données JSON :", data)
+    except Exception as e:
+        return jsonify({"error": "Erreur de parsing JSON"}), 400
+
     username = data.get('username')
     email = data.get('email')
     password = data.get('password')
-    print(app.url_map)
-    app.logger.debug("Route /register atteinte.")
-        
-
-
+    print("Données extraites : username=", username, " email=", email, " password=", password)
 
     if not username or not email or not password:
         return jsonify({"error": "Tous les champs sont requis"}), 400
@@ -125,6 +129,67 @@ def get_quizzes():
         return jsonify({"quizzes": quizzes}), 200
     finally:
         cur.close()
+
+
+
+
+
+
+@app.route('/leaderboard/<theme>', methods=['GET'])
+def leaderboard(theme):
+    cur = mysql.connection.cursor()
+    try:
+        query = """
+        SELECT users.username, scores.score, scores.created_at
+        FROM scores
+        JOIN users ON scores.user_id = users.id
+        JOIN themes ON scores.theme_id = themes.id
+        WHERE themes.name = %s
+        ORDER BY scores.score DESC
+        LIMIT 10
+        """
+        cur.execute(query, (theme,))
+        leaderboard = cur.fetchall()
+        return jsonify({"leaderboard": leaderboard}), 200
+    finally:
+        cur.close()
+
+
+
+
+
+@app.route('/get-questions/<theme>', methods=['GET'])
+def get_questions(theme):
+    cur = mysql.connection.cursor()
+    try:
+        query = """
+        SELECT question_text, option_a, option_b, option_c, option_d, correct_option, points
+        FROM questions
+        JOIN themes ON questions.theme_id = themes.id
+        WHERE themes.name = %s
+        """
+        cur.execute(query, (theme,))
+        questions = cur.fetchall()
+        return jsonify({"questions": questions}), 200
+    finally:
+        cur.close()
+
+@app.route('/submit-answer', methods=['POST'])
+def submit_answer():
+    data = request.json
+    question_id = data.get('question_id')
+    answer = data.get('answer')
+
+    cur = mysql.connection.cursor()
+    try:
+        query = "SELECT correct_option FROM questions WHERE id = %s"
+        cur.execute(query, (question_id,))
+        correct_option = cur.fetchone()[0]
+        is_correct = (answer == correct_option)
+        return jsonify({"is_correct": is_correct}), 200
+    finally:
+        cur.close()
+
 
 
 
