@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choix du Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quizz.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Sélectionnez un Quiz</h1>
+        <div class="quiz-options">
+            <button class="quiz-button" data-url="quiz-action.html">Action</button>
+            <button class="quiz-button" data-url="quiz-aventure.html">Aventure</button>
+            <button class="quiz-button" data-url="quiz-rpg.html">RPG</button>
+            <button class="quiz-button" data-url="quiz-strategie.html">Stratégie</button>
+        </div>
+    </div>
+
+    <script>
+        // Add navigation to quiz pages
+        document.querySelectorAll('.quiz-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                window.location.href = url;
+            });
+        });
+    </script>
+</body>
+</html>
