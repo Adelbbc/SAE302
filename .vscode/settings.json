@@ -12,6 +12,19 @@
             "name": "ADVAN_QUIZ",
             "database": "advan_quiz",
             "username": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "database": "ADVAN_QUIZ",
+            "username": "root",
+            "name": "ADVAN_QUIZ"
         }
     ]
 }

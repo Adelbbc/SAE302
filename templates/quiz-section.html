@@ -7,15 +7,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='quizz.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body>
+
+<body class="quiz-selection">
     <div class="container">
-        <h1 class="title">Sélectionnez un Quiz</h1>
         <div class="quiz-options">
-            <button class="quiz-button" data-url="quiz-action.html">Action</button>
-            <button class="quiz-button" data-url="quiz-aventure.html">Aventure</button>
-            <button class="quiz-button" data-url="quiz-rpg.html">RPG</button>
-            <button class="quiz-button" data-url="quiz-strategie.html">Stratégie</button>
+            <div class="quiz-row">
+                <button class="quiz-button" id="createAccount">Action</button>
+                <button class="quiz-button" id="createAccount">Aleatoire</button>
+            </div>
+            <div class="quiz-row">
+                <button class="quiz-button2" id="createAccount">RPG</button>
+                <button class="quiz-button2" id="createAccount">Stratégie</button>
+                
+            </div>
         </div>
+        
     </div>
 
     <script>

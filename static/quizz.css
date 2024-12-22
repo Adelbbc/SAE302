@@ -14,6 +14,11 @@ body {
     background-repeat: no-repeat;
 }
 
+
+body.quiz-selection {
+    background-image: url('themes.png'); /* Chemin vers l'image */
+}
+
 /* Boutons distincts */
 .start-button {
     font-size: 1.5rem;
@@ -211,35 +216,31 @@ button[type="submit"]:active {
 }
 
 
-.title {
-    font-family: 'Press Start 2P', cursive;
-    color: #ffffff;
-    font-size: 2rem;
-    margin-bottom: 50px;
-    text-align: center;
-}
 
-.quiz-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
 
+/* /////////Boutons Choix du theme /////////////////*/
+ 
+/* Boutons distincts */
 .quiz-button {
     font-size: 1.5rem;
     font-family: 'Press Start 2P', cursive;
     color: #ffffff;
-    background-color: #4caf50;
+    background-color: #f76d6d;
     border: 4px solid #ffffff;
     padding: 15px 30px;
     border-radius: 15px;
+    text-transform: uppercase;
     cursor: pointer;
     box-shadow: 4px 4px 0px #2b2b7f, 8px 8px 0px #000000;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    width: 300px; /* Largeur plus petite */
+    height: auto; /* Ajuste la hauteur automatiquement */
+    margin: 10px; /* Ajoute un espace entre les boutons */
     text-align: center;
-    text-transform: uppercase;
+    margin-top: 120px;
+    
 }
+
 
 .quiz-button:hover {
     transform: scale(1.1);
@@ -250,3 +251,53 @@ button[type="submit"]:active {
     box-shadow: 2px 2px 0px #2b2b7f, 4px 4px 0px #000000;
     transform: translate(1px, 1px);
 }
+
+
+.quiz-button2 {
+    font-size: 1.5rem;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    background-color: #f76d6d;
+    border: 4px solid #ffffff;
+    padding: 15px 30px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #2b2b7f, 8px 8px 0px #000000;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    width: 300px; /* Largeur plus petite */
+    height: auto; /* Ajuste la hauteur automatiquement */
+    margin: 10px; /* Ajoute un espace entre les boutons */
+    text-align: center;
+    margin-top: 1px;
+    
+}
+
+
+.quiz-options {
+    display: flex;
+    flex-direction: column; /* Organise les boutons en colonnes (lignes superposées) */
+    align-items: center; /* Centre les lignes horizontalement */
+    gap: 10px; /* Espacement exact entre les lignes */
+}
+
+
+.quiz-row {
+    display: flex; /* Les boutons sur une même ligne */
+    justify-content: center; /* Centre les boutons horizontalement */
+    gap: 20px; /* Espacement entre les boutons */
+}
+
+
+.quiz-button2:hover {
+    transform: scale(1.1);
+    background-color: #3e8e41;
+}
+
+.quiz-button2:active {
+    box-shadow: 2px 2px 0px #2b2b7f, 4px 4px 0px #000000;
+    transform: translate(1px, 1px);
+}
+
+
+/*////////////////////////// Fin des Boutons de theme //////////////////////*/

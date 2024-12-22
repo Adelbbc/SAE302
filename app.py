@@ -50,6 +50,11 @@ def inscription():
     return render_template('inscription.html')  # Charge la page d'inscription
 
 
+@app.route('/theme')
+def theme():
+    return render_template('quiz-section.html')  # Charge la page d'inscription
+
+
 
 
 @app.route('/register', methods=['POST'])
